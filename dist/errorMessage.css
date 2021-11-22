@@ -1,0 +1,61 @@
+.base-p{
+    margin: 10px;  animation: showBlock 1s linear forwards;
+}
+
+.panelContainer{
+    position: fixed;
+    top: 10px;
+    left: 10px;
+
+}
+
+.panelError{
+    background: red;
+    color: white;
+    width: 200px;
+    height: 100px;
+}
+@keyframes showBlock {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.panelWarning{
+    background: #efdb59;
+    color: white;
+    width: 200px;
+    height: 100px;
+}
+
+.panelInfo{
+    background: #389bf1;
+    color: white;
+    width: 200px;
+    height: 100px;
+}
+
+.panelHead{
+    display: inline-flex;
+}
+.panelMessage{
+    padding: 5px;
+}
+.panelHeadImage{
+padding: 5px;
+}
+.panelHeadMessage{
+    padding: 5px;
+ color: red;
+}
+.panelImageCore{
+ width: 20px; height: 20px;
+}
+.panelError .panelHeadMessage{
+    color: white;
+}
+.panelHr{
+
+}

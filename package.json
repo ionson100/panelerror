@@ -2,7 +2,22 @@
   "name": "panelerror",
   "version": "0.1.0",
   "private": true,
+
+  "private": false,
+  "main": "dist/PanelError.js",
+  "module": "dist/PanelError.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+
+  "babel": {
+    "presets": [
+      "@babel/preset-react"
+    ]
+  },
   "dependencies": {
+    "@babel/preset-env": "^7.16.4",
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -15,7 +30,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "publish:npm": "cross-env NODE_ENV=production  babel  src/panelerror --out-dir dist --copy-files"
   },
   "eslintConfig": {
     "extends": [
@@ -36,6 +52,9 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/preset-react": "^7.16.0",
+    "cross-env": "^7.0.3",
     "react-icons": "^4.3.1"
   }
 }
