@@ -1,14 +1,31 @@
 import React, { createRef } from "react";
-import "./errorMessage.css";
 import * as ReactDOM from "react-dom";
 
 const {
   Component
 } = require("react");
+/**
+ * префикс для именования контейнера сообщения
+ * @type {number}
+ */
+
 
 let fif = 0;
+/**
+ * id контейнера модуля
+ * @type {string}
+ */
+
 const containerId = "fifa-go";
+/**
+ * синглтон html элемента контейнера модуля
+ * @type {undefined}
+ */
+
 let fiafaCon = undefined;
+/**
+ * Модель передатчика данных сообщения
+ */
 
 class Inserter {
   constructor({
@@ -26,6 +43,12 @@ class Inserter {
   }
 
 }
+/**
+ * запуск контейнера сообщений
+ * @param inserter ссылка на передатчик данных InserterResident
+ * @constructor
+ */
+
 
 function Runner(inserter) {
   const root = document.createElement('div');
@@ -35,6 +58,10 @@ function Runner(inserter) {
     inserter: inserter
   }), root);
 }
+/**
+ * объект контейнера сообщения
+ */
+
 
 class PanelError extends Component {
   constructor(props) {
@@ -47,7 +74,7 @@ class PanelError extends Component {
   }
 
   addCore(i) {
-    console.log("KKKK", this.ref);
+    //  console.log("KKKK",this.ref)
     const id = "fifa-" + fif++;
     const f = document.createElement('div');
     f.className = "base-p";
@@ -68,11 +95,19 @@ class PanelError extends Component {
   }
 
 }
+/**
+ * модель передатчика данных, через нее передаются данные Inserter
+ */
+
 
 class InserterResident {
   addInserter(inserter) {}
 
 }
+/**
+ * Объект тела сообщения
+ */
+
 
 class BodyPanel extends Component {
   constructor(props) {
@@ -85,11 +120,11 @@ class BodyPanel extends Component {
   init() {
     if (!fiafaCon) {
       fiafaCon = document.getElementById(containerId);
-    }
+    } //console.log("sd",this.insertor)
 
-    console.log("sd", this.insertor);
 
     if (this.insertor._timeout !== -1) {
+      // запуск таймера гашения сообщения, если -1, сообщение не гасится
       this.time = setTimeout(() => {
         const self = document.getElementById(this.insertor.parent);
 
@@ -99,8 +134,13 @@ class BodyPanel extends Component {
       }, this.insertor._timeout);
     }
   }
+  /**
+   * Гашение сообщения вручную
+   */
+
 
   clickPanel() {
+    //console.log("aas",event)
     const self = document.getElementById(this.insertor.parent);
 
     if (self) {
@@ -126,6 +166,11 @@ class BodyPanel extends Component {
         case "info":
           {
             return "panelInfo";
+          }
+
+        case "success":
+          {
+            return "panelSuccess";
           }
 
         default:
@@ -184,7 +229,16 @@ class BodyPanel extends Component {
 }
 
 const inserterR = new InserterResident();
-Runner(inserterR); //new PanelErrorWrapper(inserterR)
+Runner(inserterR);
+/**
+ *
+ * @param message сообщение текст или React элемент
+ * @param head  заголовок сообщение текст или React элемент
+ * @param type  тип сообщения error|panelError|warning|info|success по умолчанию: error
+ * @param image иконка сообщения текст или React элемент
+ * @param timeout время в милисек, аосле которого сообщение будет скрыто ( -1 - сообщение скрывать вручную) по умолчанию: 5000 (5 сек)
+ * @constructor
+ */
 
 export function ShowPanel({
   message,

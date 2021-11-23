@@ -1,20 +1,22 @@
+/*субконтейнер сообщения*/
 .base-p{
     margin: 10px;  animation: showBlock 1s linear forwards;
 }
-
+/*Контейнер модуля сообщений*/
 .panelContainer{
     position: fixed;
     top: 10px;
     left: 10px;
 
 }
-
+/*стиль для типа ошибка*/
 .panelError{
     background: red;
     color: white;
     width: 200px;
     height: 100px;
 }
+/* плавная анимация для показа*/
 @keyframes showBlock {
     0% {
         opacity: 0;
@@ -23,39 +25,52 @@
         opacity: 1;
     }
 }
+/*стиль для типа предупреждения*/
 .panelWarning{
     background: #efdb59;
     color: white;
     width: 200px;
     height: 100px;
 }
-
+/*стиль для типа инфо*/
 .panelInfo{
     background: #389bf1;
     color: white;
     width: 200px;
     height: 100px;
 }
-
+/*стиль для типа успех*/
+.panelSuccess{
+    background: #77ea86;
+    color: white;
+    width: 200px;
+    height: 100px;
+}
+/* панель заголовка сообщения*/
 .panelHead{
     display: inline-flex;
 }
+/*панель тела сообщения*/
 .panelMessage{
     padding: 5px;
 }
+/*панель иконки заголовка сообщения*/
 .panelHeadImage{
 padding: 5px;
 }
+/*панель содержания заголовка соощения*/
 .panelHeadMessage{
     padding: 5px;
  color: red;
 }
+/*стиль иконки, если выбрано задание как строка*/
 .panelImageCore{
  width: 20px; height: 20px;
 }
 .panelError .panelHeadMessage{
     color: white;
 }
+/*стиль хера между заголовком и телом.*/
 .panelHr{
 
 }

@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-
+import "./panelerror/errorMessage.css"
 import {ShowPanel} from "./panelerror/PanelError";
-import { MdAlarmAdd } from "react-icons/md";
+
+
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
@@ -16,7 +17,7 @@ ReactDOM.render(
 
 const b1=document.getElementById("bt1");
 b1.onclick=function (){
-    ShowPanel({message:"error timeout=5c",type:"error",image:'./error.png',head:'ERROR'})
+     ShowPanel({message:"error timeout=5c",type:"error",image:'./error.png',head:'ERROR'})
 }
 const b2=document.getElementById("bt2");
 b2.onclick=function (){
